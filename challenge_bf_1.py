@@ -31,20 +31,17 @@ def bruteforce(character_list: list, lenght: int, combinations: list, word=""):
         combinations.append(word)
 
 
-def combinations_formater(combinations: list):
+def combinations_formater(combinations: list, lenght: int):
     combinations.remove("")
-    return sorted(combinations, key=lambda x: (len(x), x))
-
-
-def sum_of_powers(base, highest_power):
-    return sum(base**i for i in range(1, highest_power + 1))
+    x = [combination for combination in combinations if len(combination) == lenght]
+    return sorted(x, key=lambda x: (len(x), x))
 
 
 combinations = []
 bruteforce(alphabet, n, combinations)
-combinations = combinations_formater(combinations)
+combinations = combinations_formater(combinations, n)
 
 
 print(combinations)
 print(len(combinations))
-print(sum_of_powers(len(alphabet), n))
+print(26**n)
