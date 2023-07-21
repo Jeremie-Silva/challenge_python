@@ -26,6 +26,7 @@ permutate_character_dict = {
     "s": ["s", "S", "$", "5"],
     "o": ["o", "O", "°", "0"]
 }
+word = "password"
 combinations = []
 
 
@@ -37,7 +38,7 @@ def bruteforce(permutate_character_dict: dict, combinations: list, word: str):
                 combinations.append(new_word)
 
 
-bruteforce(permutate_character_dict, combinations, word="password")
+bruteforce(permutate_character_dict, combinations, word)
 
 
 print(combinations)
