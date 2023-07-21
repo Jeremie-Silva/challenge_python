@@ -1,6 +1,6 @@
 """Challenge 00
 Given integer `N`.
-Generate list of string with length exactly `N`. Each element of string is 
+Generate list of string with length exactly `N`. Each element of string is
 lowercase alphabet (a-z).
 Save the list as file with each line contain only a string.
 
@@ -20,28 +20,21 @@ length. This require large space to store the result.
 
 alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
             "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
 n = 4
+combinations = []
 
 
 def bruteforce(character_list: list, lenght: int, combinations: list, word=""):
     if len(word) <= lenght:
         for character in character_list:
             bruteforce(character_list, lenght, combinations, word+character)
-        combinations.append(word)
+        if len(word) == lenght:
+            combinations.append(word)
 
 
-def combinations_formater(combinations: list, lenght: int):
-    combinations.remove("")
-    x = [combination for combination in combinations if len(combination) == lenght]
-    return sorted(x, key=lambda x: (len(x), x))
-
-
-combinations = []
 bruteforce(alphabet, n, combinations)
-combinations = combinations_formater(combinations, n)
 
 
 print(combinations)
 print(len(combinations))
-print(26**n)
+print(len(alphabet)**n)

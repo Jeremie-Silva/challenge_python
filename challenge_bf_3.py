@@ -14,38 +14,35 @@ Some systems dictate that the length of the word is in a fix range, no more or n
 
 alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
             "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
-s = 3
-e = 5
+begin = 2
+end = 3
+combinations = []
 
 
 def first_character(character_list: list, minimum: int):
-    x = ""
-    for i in range(1, minimum):
-        x += character_list[0]
-    return x
+    return "".join([character_list[0] for _ in range(minimum-1)])
 
 
-def bruteforce(character_list: list, combinations: list, lenght: int, word=""):
+def bruteforce(character_list: list, combinations: list, lenght: int, begin: int, word=""):
     if len(word) <= lenght:
         for character in character_list:
-            bruteforce(character_list, combinations, lenght, word + character)
-        combinations.append(word)
+            bruteforce(character_list, combinations, lenght, begin, word + character)
+        if len(word) >= begin:
+            combinations.append(word)
 
 
 def combinations_formatter(combinations: list):
-    combinations.remove("")
     return sorted(combinations, key=lambda x: (len(x), x))
 
 
-def highest_power(base: int, power: int, minimum):
-    return sum(base ** i for i in range(1, power + 1) if i <= power and i >= minimum)
+def highest_power(base: int, power: int, power_minimum):
+    return sum([base ** number for number in range(1, power + 1) if power_minimum <= number <= power])
 
 
-combinations = []
-bruteforce(alphabet, combinations, e, word=first_character(alphabet, s))
-# combinations = combinations_formatter(combinations)
+bruteforce(alphabet, combinations, end, begin)
+combinations = combinations_formatter(combinations)
+
 
 print(combinations)
 print(len(combinations))
-print(highest_power(len(alphabet), e, s))
+print(highest_power(len(alphabet), end, begin))

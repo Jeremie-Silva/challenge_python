@@ -17,8 +17,8 @@ length.
 
 alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
             "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
 n = 4
+combinations = []
 
 
 def bruteforce(character_list: list, combinations: list, lenght: int, word=""):
@@ -37,9 +37,9 @@ def highest_power(base: int, power: int):
     return sum(base ** i for i in range(1, power + 1))
 
 
-combinations = []
 bruteforce(alphabet, combinations, n)
 combinations = combinations_formatter(combinations)
+
 
 print(combinations)
 print(len(combinations))
