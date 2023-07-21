@@ -28,12 +28,12 @@ def bruteforce(character_list: list, combinations: list, lenght: int, word=""):
         combinations.append(word)
 
 
-def combinations_formatter(combinations: list):
+def combinations_formatter(combinations: list) -> list:
     combinations.remove("")
     return sorted(combinations, key=lambda x: (len(x), x))
 
 
-def highest_power(base: int, power: int):
+def highest_power(base: int, power: int) -> int:
     return sum(base ** i for i in range(1, power + 1))
 
 

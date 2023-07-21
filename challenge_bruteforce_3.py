@@ -19,7 +19,7 @@ end = 3
 combinations = []
 
 
-def first_character(character_list: list, minimum: int):
+def first_character(character_list: list, minimum: int) -> str:
     return "".join([character_list[0] for _ in range(minimum-1)])
 
 
@@ -31,11 +31,11 @@ def bruteforce(character_list: list, combinations: list, lenght: int, begin: int
             combinations.append(word)
 
 
-def combinations_formatter(combinations: list):
+def combinations_formatter(combinations: list) -> list:
     return sorted(combinations, key=lambda x: (len(x), x))
 
 
-def highest_power(base: int, power: int, power_minimum):
+def highest_power(base: int, power: int, power_minimum) -> int:
     return sum([base ** number for number in range(1, power + 1) if power_minimum <= number <= power])
 
 
