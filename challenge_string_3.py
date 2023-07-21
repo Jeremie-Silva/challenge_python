@@ -42,15 +42,3 @@ new_text = replace_characters_in_text(text, begin, end, new_character)
 print(new_text)
 print(len(text))
 print(len(new_text))
-
-
-
-
-
-
-
-
-
-
-
-
