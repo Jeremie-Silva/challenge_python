@@ -15,36 +15,36 @@ such as `Substitution-Permutation Network (SPN)`,
 where plaintext is rearranged according a rule (Permutation Box).
 """
 
-
 word: str = "ABC"
+word_list: list = []
 
 
-def permutated_letters(word: str) -> list[str]:
-    # TODO: here
-    # Fonction recursive inspirée du bruteforce
-    return word
+def permutated_letters(word: str, word_list: list, begin="") -> list[str]:
+    if len(word) == 0:
+        word_list.append(begin)
+    for count, letter in enumerate(word):
+        permutated_letters(word[0:count] + word[count+1:], word_list, begin+letter)
+    return word_list
 
 
+def combination_counter_with_range(lenght: int) -> int:
+    count = 1
+    for i in range(lenght, 0, -1):
+        count *= i
+    return count
 
 
+def combination_counter_with_while(lenght: int) -> int:
+    count = 1
+    while lenght-1 > 0:
+        count *= lenght
+        lenght -= 1
+    return count
 
 
+result_list: list[str] = permutated_letters(word, word_list)
 
-
-
-print(permutated_letters(word))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(result_list)
+print(len(result_list))
+print(combination_counter_with_range(len(word)))
+print(combination_counter_with_while(len(word)))
