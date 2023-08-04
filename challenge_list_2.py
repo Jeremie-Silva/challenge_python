@@ -14,7 +14,7 @@ such as sending command to connected agents/implants simultaneously.
 l: list[int] = [1, 6, 7, 2, 8]
 
 
-def multiply_each_member(integer_list: list[int], factor: int = 1):
+def multiply_each_member(integer_list: list[int], factor: int = 1) -> list[int]:
     return [item * factor for item in integer_list]
 
 

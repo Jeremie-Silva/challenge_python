@@ -15,7 +15,7 @@ Filtering is useful to obtain right item for the operation such as selecting cor
 l: list[int] = [4, 5, 1, 6, 7, 2, 8, 9, 1, 6, 9]
 
 
-def highest_number(integer_list: list[int]):
+def highest_number(integer_list: list[int]) -> list[int]:
     reference = 0
     results: list[int] = []
     for item in integer_list:
