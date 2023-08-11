@@ -12,23 +12,17 @@ Partitioning or splitting the list into several blocks of equal length.
 Partitioning is useful to divide the load so we can distribute it into several workers and executed concurrently.
 """
 
-
 l: list[str] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n']
-parts: int = 3
+parts: int = 4
 
 
-def slicing_a_list_in_parts(l: list[str], parts: int):
+def slicing_a_list_in_parts(l: list[str], parts: int) -> list[list[str]]:
     results = []
-    size = len(l)//parts
-    results.append(l[:size])
-    if parts >= 3:
-        results.append(l[size:size*2])
-    results.append(l[size*3:])
+    quantity = round(len(l)/parts)
+    for part in range(parts):
+        results.append(l[quantity*part:quantity*(part+1)])
     return results
 
 
 results = slicing_a_list_in_parts(l, parts)
 print(results)
-
-
-
