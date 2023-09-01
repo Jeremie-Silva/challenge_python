@@ -34,12 +34,11 @@ def bruteforce(permutate_character_dict: dict, combinations: list, word: str):
     for count, letter in enumerate(word):
         if permutate_character_dict.get(letter):
             for permutate_letter in permutate_character_dict[letter]:
-                new_word = word[:count] + permutate_letter + word[count+1:]
+                new_word = word[:count] + permutate_letter + word[count + 1:]
                 combinations.append(new_word)
 
 
 bruteforce(permutate_character_dict, combinations, word)
-
 
 print(combinations)
 print(len(combinations))
