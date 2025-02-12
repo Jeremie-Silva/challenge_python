@@ -1,6 +1,4 @@
 """Check if a sentence is a pangramme"""
-
-
 import string
 
 

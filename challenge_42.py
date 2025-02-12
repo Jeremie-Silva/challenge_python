@@ -1,6 +1,4 @@
 """Generate random password"""
-
-
 import string
 from random import randint
 

@@ -1,6 +1,4 @@
 """Retrieve date of birth based en age and birth_month"""
-
-
 from datetime import datetime
 
 

@@ -1,6 +1,4 @@
 """Generate random password with verifications"""
-
-
 import string
 from random import randint
 
