@@ -1,4 +1,4 @@
-"""Recreate is_digit built-in function"""
+"""Recreate is_digit() built-in function"""
 import string
 
 
